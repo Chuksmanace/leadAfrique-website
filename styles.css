@@ -1,0 +1,908 @@
+:root {
+    --font-primary: 'Inter', sans-serif;
+    --color-purple: #6d28d9;
+    --color-purple-dark: #4c0563;
+    --color-yellow: #facc15;
+    --color-pink: #fce7f3;
+    --color-red: #ef4444;
+    --color-white: #ffffff;
+    --color-text-dark: #1f2937;
+    --color-text-light: #f3f4f6;
+}
+
+/* Basic Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+section {
+    padding: 60px 20px;
+}
+
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.main-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  height: 80px;
+  background-color: #fff9f9;
+  color: #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+}
+
+.logo img {
+  height: 50px;
+  content: url('https://www.leadafrique.org/_next/image?url=%2Flogo.webp&w=256&q=75');
+  width: auto;
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav ul li {
+  margin: 0 20px;
+  position: relative;
+}
+
+.main-nav ul li a {
+  font-weight: 100;
+  font-size: 16px;
+  padding: 5px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.main-nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: purple;
+  transition: width 0.3s ease-in-out;
+}
+
+.main-nav ul li a:hover {
+  color: purple;
+}
+
+.main-nav ul li a:hover::after {
+  width: 100%;
+}
+
+.programslist .programslist1{
+        display: none;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    min-width: 300px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 10px 0;
+    opacity: 0;
+    color: #000000;
+    visibility: hidden;
+    transition: top 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+.programslist:hover .programslist1{
+     display: block;
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+.programslist1 ul{
+    flex-direction: column;
+}
+.programslist1 ul li {
+    margin: 0;
+    width: 100%;
+}
+.programslist1 ul li a {
+    padding: 12px 20px;
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+}
+.programslist1 ul li a:hover {
+    background-color: #000000;
+    color: rgb(254, 254, 255);
+}
+
+.programslist1 ul li a i {
+    margin-left: 8px;
+}
+
+.others .other-main {
+  display: none;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: rgb(6, 6, 6);
+  min-width: 300px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: top 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.others:hover .other-main {
+  display: block;
+  top: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+
+.other-main ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.other-main ul li {
+  margin: 0;
+  width: 100%;
+}
+
+.other-main ul li a {
+  padding: 12px 20px;
+  display: block;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.other-main ul li a:hover {
+  background-color: #212128;
+  color: rgb(255, 254, 255);
+}
+
+.other-main ul li a i {
+  margin-left: 8px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.hamburger-menu .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  max-width: 320px;
+  height: 100%;
+  color: white;
+  background-color: #c500ed;
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  padding-top: 100px;
+}
+
+.side-menu nav ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu nav li {
+  width: 100%;
+}
+
+.side-menu nav a {
+  display: block;
+  padding: 18px 30px;
+  font-size: 1.6em;
+  font-weight: lighter;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.side-menu nav a:hover {
+  color: #ffffff;
+}
+
+#menu-toggle:checked ~ .side-menu {
+  transform: translateX(0);
+}
+
+#menu-toggle:checked ~ .hamburger-menu .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+#menu-toggle:checked ~ .hamburger-menu .bar:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked ~ .hamburger-menu .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+@media (max-width: 992px) {
+  .main-nav {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+}
+
+/* --- Section 1: Hero --- */
+#hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    /* padding: 20px; */
+    padding-top: 700px;
+    text-align: left;
+}
+
+#hero .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+#hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+#hero .container {
+    max-width: 1200px;
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+}
+
+#hero h1 {
+    font-size: 8em;
+    font-weight: 900;
+    /* text-transform: uppercase; */
+}
+
+#hero .highlight {
+    color: #c084fc;
+    /* light purple */
+}
+
+#hero p {
+    max-width: 600px;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+
+/* --- Section 2: What We Do & Framework --- */
+#what-we-do {
+    padding-bottom: 30px;
+     height: auto;
+    /* padding: 10vh 0 20vh 0;  */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.what-we-do-box {
+    background-color: #ffc107e3;
+    padding: 40px;
+    /* border-radius: 8px; */
+    max-width: 90%;
+    text-align: left;
+     display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    color: #ffff;
+    font-size: 2.2em;
+}
+
+
+.gh h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.gh {
+    font-size: 1.5rem;
+}
+
+
+
+
+
+#framework {
+    /* background-color: rgba(1, 31, 31, 0.136); */
+    color: rgb(0, 0, 0);
+}
+
+#framework h2 {
+    font-size: 3em;
+}
+
+.framework-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+}
+
+.framework-card h3 {
+    font-size: 2.2em;
+}
+
+.framework-card p {
+    font-size: 1.5em;
+}
+
+.framework-card {
+    flex: 0 0 auto;
+    width: 300px;
+    min-height: 200px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 90px 10px;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#bg-blue {
+  background: linear-gradient(rgba(0, 123, 255, 0.695)), url(../img/brain-744207_1280.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bg-green {
+    background: linear-gradient(#28a74691), url(../img/software-4051778_1280.jpg);
+     background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bg-yellow {
+    background: linear-gradient(#ffc107e3),url(../img/footprints-511553_1280.jpg);
+     background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bg-red {
+    background: linear-gradient(#a50c0c95),url(../img/woman-5579772_1280.png);
+     background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bg-indigo {
+    background: linear-gradient(#6710f2a0),url(../img/crowd-8693673_1280.jpg);
+     background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bg-purple {
+    background: linear-gradient(#ff00dd8e),url(../img/1_ooWq5ngTV-7ngWlEPpCVoA@2x.jpg);
+     background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bg-pink {
+     background: linear-gradient(rgba(163, 58, 255, 0.575)),url(img/3564789.jpg);
+     background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#bg-black {
+     background: linear-gradient(rgba(215, 111, 51, 0.675)),url(img/8506668.jpg);
+     background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.framework-slider::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .framework-slider {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow: visible;
+    }
+
+    .framework-card {
+        width: calc(33.333% - 20px);
+    }
+}
+
+
+/* --- Section 3: Impact --- */
+#impact {
+  background: linear-gradient(rgba(163, 58, 255, 0.521)), url(img/annie-spratt-feU8G7E5ODI-unsplash.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.impact-grid {
+    display: grid;
+    gap: 30px;
+    max-width: 2009px;
+    margin: 0 auto;
+}
+
+.impact-card {
+    background-color: var(--color-white);
+    padding: 40px;
+}
+
+.impact-card p {
+     font-size: 1.5rem;
+     font-weight: 500;
+}
+
+.impact-card h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.impact-card .count {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-top: 1rem;
+}
+
+/* --- Section 4: Summercamp --- */
+
+#summercamp .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+#summercamp .text-content h2 {
+    color: var(--color-red);
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+#summercamp .text-content p {
+    font-size: 1.30rem;
+}
+
+#summercamp .register-btn {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+#summercamp .register-btn:hover {
+    background-color: #5b21b6;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Section 5: YouTube --- */
+#youtube {
+    background-color: rgba(228, 99, 120, 0.837);
+}
+
+#youtube .container {
+    width: 80%;
+}
+
+#youtube h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.youtube-scroller {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px 0;
+    scroll-behavior: smooth;
+}
+
+.video-card {
+    flex: 0 0 auto;
+    width: 300px;
+    min-height: 200px;
+    color: #fff;
+    padding: 10px;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.video-card img {
+    width: 100%;
+    height: 70%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.bg-blue {
+    background-color: #007BFF;
+}
+
+.bg-green {
+    background-color: #28a745;
+}
+
+.bg-yellow {
+    background-color: #ffc107;
+    color: #fffdfd;
+}
+
+.bg-red {
+    background-color: #dc3545;
+}
+
+.bg-indigo {
+    background-color: #6610f2;
+}
+
+.bg-pink {
+    background-color: #e300e7;
+}
+
+.bg-indigo1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.385);
+}
+
+.youtube-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .youtube-scroller {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow: visible;
+    }
+
+    .video-card {
+        width: calc(33.333% - 20px);
+    }
+}
+
+
+
+/* --- FOOTER STYLES --- */
+.footer {
+    padding: 5vh 0 10vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+}
+
+.footer1 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 2px solid white;
+    padding-bottom: 40px;
+    width: 86%;
+}
+
+.logo1 {
+    display: flex;
+    align-items: flex-start;
+}
+
+.logo1 img {
+    height: 80px;
+}
+
+.logo1 h4 {
+    font-size: 6.5em;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+.contact-bthn {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 50px 0 80px 0;
+}
+
+.btn33, .btn34 {
+    height: 80px;
+    width: 100%;
+    max-width: 260px;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    font-weight: 500;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn33:hover, .btn34:hover {
+    background-color: white;
+    color: black;
+}
+
+.credentials {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.credentials p {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.links2 ul {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.links2 .wow {
+    border-right: 1px solid blueviolet;
+    padding-right: 20px;
+}
+
+.wow a {
+    color: blueviolet;
+}
+
+.links2 ul li a {
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: .3s;
+}
+
+.links2 ul li a:hover {
+    color: blueviolet;
+}
+
+
+
+/* Tablets and smaller desktops */
+@media (max-width: 992px) {
+    .main-nav {
+        display: none;
+    }
+
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .portfoliogrid {
+        columns: 2 200px;
+    }
+
+    .logo1 h4 {
+        font-size: 4em;
+    }
+
+    .contact-bthn {
+        flex-direction: column;
+        width: 90%;
+        padding: 40px 0;
+    }
+
+    .btn33, .btn34 {
+        font-size: 1em;
+        height: 70px;
+        max-width: 100%;
+    }
+
+    .credentials {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .links2 ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+/* --- Responsive Design --- */
+
+/* Add these new rules for smaller screens */
+@media screen and (max-width: 768px) {
+    #hero h1 {
+        /* Significantly reduce font size for tablets and mobiles */
+        font-size: 4.5em;
+    }
+
+    #hero p {
+        /* Slightly reduce paragraph font size */
+        font-size: 1.2rem;
+    }
+
+    
+    .logo1 {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo1 h4 {
+        font-size: 3em;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .footer1 {
+        width: 90%;
+        padding-bottom: 20px;
+    }
+
+    .contact-bthn {
+        width: 90%;
+    }
+
+    .credentials {
+        padding: 0 1rem;
+    }
+
+    .links2 .wow {
+        border-right: none;
+        padding-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .links2 ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #hero h1 {
+        /* Further reduce font size for small mobile screens */
+        font-size: 3em;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+
+    #framework h2 {
+    font-size: 1.5em;
+}
+}
+
+
+
+/* --- Responsive Design --- */
+@media (min-width: 768px) {
+    section {
+        padding: 80px 40px;
+    }
+
+    #summercamp .container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+
+    container h1 {
+        font-size: 4rem;
+        gap: 2rem;
+    }
+
+
+}

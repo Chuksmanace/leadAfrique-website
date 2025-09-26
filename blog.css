@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(96, 33, 151);
+    /* border-bottom: 3px solid rgba(0, 0, 0, 0.34); */
+
+}
+
+.logo img {
+    height: 80px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.main-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  height: 80px;
+  background-color: white;
+  color: #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease;
+}
+
+.logo img {
+  height: 50px;
+  content: url('https://www.leadafrique.org/_next/image?url=%2Flogo.webp&w=256&q=75');
+  width: auto;
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+}
+
+.main-nav ul li {
+  margin: 0 20px;
+  position: relative;
+}
+
+.main-nav ul li a {
+  font-weight: 500;
+  font-size: 16px;
+  padding: 5px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.main-nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: purple;
+  transition: width 0.3s ease-in-out;
+}
+
+.main-nav ul li a:hover {
+  color: purple;
+}
+
+.main-nav ul li a:hover::after {
+  width: 100%;
+}
+
+.programslist .programslist1{
+        display: none;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    min-width: 300px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 10px 0;
+    opacity: 0;
+    color: #000000;
+    visibility: hidden;
+    transition: top 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+.programslist:hover .programslist1{
+     display: block;
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+.programslist1 ul{
+    flex-direction: column;
+}
+.programslist1 ul li {
+    margin: 0;
+    width: 100%;
+}
+.programslist1 ul li a {
+    padding: 12px 20px;
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+}
+.programslist1 ul li a:hover {
+    background-color: #000000;
+    color: rgb(254, 254, 255);
+}
+
+.programslist1 ul li a i {
+    margin-left: 8px;
+}
+
+.others .other-main {
+  display: none;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: rgb(6, 6, 6);
+  min-width: 300px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: top 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.others:hover .other-main {
+  display: block;
+  top: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+
+.other-main ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.other-main ul li {
+  margin: 0;
+  width: 100%;
+}
+
+.other-main ul li a {
+  padding: 12px 20px;
+  display: block;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.other-main ul li a:hover {
+  background-color: #212128;
+  color: rgb(255, 254, 255);
+}
+
+.other-main ul li a i {
+  margin-left: 8px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.hamburger-menu .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  max-width: 320px;
+  height: 100%;
+  color: white;
+  background-color: #c500ed;
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  padding-top: 100px;
+}
+
+.side-menu nav ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu nav li {
+  width: 100%;
+}
+
+.side-menu nav a {
+  display: block;
+  padding: 18px 30px;
+  font-size: 1.6em;
+  font-weight: lighter;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.side-menu nav a:hover {
+  color: #ffffff;
+}
+
+#menu-toggle:checked ~ .side-menu {
+  transform: translateX(0);
+}
+
+#menu-toggle:checked ~ .hamburger-menu .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+#menu-toggle:checked ~ .hamburger-menu .bar:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle:checked ~ .hamburger-menu .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+@media (max-width: 992px) {
+  .main-nav {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+}
+body {
+    background-color: #202020;
+}
+
+.blog-sec{
+    height: auto;
+    padding: 18vh 0 10vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+.blog{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    /* gap: 40px; */
+    column-gap: 20px;
+    row-gap: 50px;
+    height: 300px;
+
+}
+.blog-mini{
+    position: relative;
+    height: 300px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.blog-mini img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.blog-text{
+    position: absolute;
+    z-index: 4;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 2px 2px 0 0;
+    border-radius: 10px;
+    height: 150px;
+    backdrop-filter: blur(10px);
+    background: rgba(44, 44, 44, 0.39);
+    padding: 20px;
+}
+.blog-text h3{
+    color: rgb(255, 255, 255);
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+.blog-text p{
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+}
+.blog-hover{
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.192);
+}             
+.blog-mini:hover .blog-hover{
+    opacity: 1;
+}
+
+@media screen and (max-width:780px) {
+    .blog{
+        width: 99%;
+    }
+}
+@media screen and (max-width:650px) {
+    .blog{
+        grid-template-columns: repeat(1, 1fr);
+        width: 80%;
+    }
+    .blog-text h3{
+
+    font-size: 1.2em;
+   
+}
+.blog-text p{
+    font-size: 0.9em;
+}
+}
+@media screen and (max-width:400px) {
+    .blog{
+        width: 95%;
+    }
+}
