@@ -272,6 +272,13 @@ a {
 
 }
 
+/* --- RESPONSIVE CHANGE --- */
+/* Makes the logo image in the hero section scale down on smaller screens */
+.gyla-1 img {
+    max-width: 90%;
+    height: auto;
+}
+
 .ghana-youth {
     height: auto;
     padding: 5vh 0 10vh 0;
@@ -280,8 +287,6 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
-
-
 }
 
 .ghana-youth-1 {
@@ -289,7 +294,9 @@ a {
 }
 
 .ghana-youth-1 p {
-    font-size: 3.8rem;
+    /* --- RESPONSIVE CHANGE --- */
+    /* Using clamp() for a fluid font size that adapts to screen width */
+    font-size: clamp(2.5rem, 10vw, 3.8rem); 
     font-family: var(--font-family);
     font-weight: 700;
     margin-bottom: 50px;
@@ -308,12 +315,16 @@ a {
 }
 
 .gyla-text {
-    width: 80%;
+    /* --- RESPONSIVE CHANGE --- */
+    /* Increased width for better text flow on mobile */
+    width: 90%;
 }
 
 .gyla-text p {
-
-    font-size: 1.2em;
+    /* --- RESPONSIVE CHANGE --- */
+    /* Adjusted font size and line height for better readability on all screens */
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    line-height: 1.7;
     text-align: left;
     font-weight: 400;
 }
@@ -357,7 +368,6 @@ a {
     margin-bottom: 40px;
     height: 550px;
     width: 100%;
-
     background: url(img/gyla\ \(59\).webp);
     background-position: center;
     background-size: cover;
@@ -370,18 +380,36 @@ a {
     margin-bottom: 40px;
     height: 450px;
     width: 100%;
-
     background: url(img/gyla1.png);
     background-position: center;
     background-size: cover;
     background-attachment: scroll;
 }
 
+/* --- NEW MEDIA QUERY for content responsiveness --- */
+@media (max-width: 768px) {
+    .gyla-1 {
+        min-height: 60vh; /* Reduced hero height on smaller screens */
+    }
+
+    .gyla-img, .gyla-img1 {
+        /* Reduced image container height for mobile */
+        height: 300px; 
+    }
+}
+
+/* --- NEW MEDIA QUERY for larger screens --- */
+@media (min-width: 768px) {
+    .gyla-text {
+        width: 80%; /* Revert to 80% width on larger screens */
+    }
+}
+
+
 /* =================================== */
-/* Responsive Footer          */
+/* Responsive Footer (UNCHANGED AS REQUESTED) */
 /* =================================== */
 
-/* Main footer container */
 footer {
     background: black;
     color: white;
@@ -392,7 +420,6 @@ footer {
     gap: 40px; /* Space between the footer sections */
 }
 
-/* Top section: Logo and "Join the Movement" */
 .footer {
     width: 100%;
     display: flex;
@@ -416,14 +443,12 @@ footer {
 
 .logo1 h4 {
     color: white;
-    /* Using clamp for a fluid font size that adapts to the screen width */
     font-size: clamp(3rem, 10vw, 4rem);
     font-weight: 700;
     line-height: 1.1;
     margin-left: 0;
 }
 
-/* Middle section: Contact buttons */
 .contact-bthn {
     width: 100%;
     max-width: 400px; /* To prevent buttons from being too wide on mobile */
@@ -463,7 +488,6 @@ footer {
     color: black; /* This ensures the text color changes on hover */
 }
 
-/* Bottom section: Copyright and social links */
 .credentials {
     width: 100%;
     display: flex;
@@ -503,13 +527,7 @@ footer {
     color: blueviolet;
 }
 
-
-/* ================================================= */
-/* Media Query for Tablets and Desktops (768px+)   */
-/* ================================================= */
-
 @media (min-width: 768px) {
-    /* Revert to your original layout for larger screens */
     footer {
         padding: 5vh 0 10vh 0;
     }
