@@ -236,7 +236,51 @@
                         </div>
                 </div>
         </footer>
-        <script src="../script.js"></script>
+        <script>
+                document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const gridItems = document.querySelectorAll('.griditem');
+    const portfoliogrid = document.querySelector('.portfoliogrid');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filterValue = button.getAttribute('data-filter');
+
+            // 1. Update active button state
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // 2. Filter the grid items
+            gridItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+
+                if (filterValue === 'all' || itemCategory === filterValue) {
+                    // Show item
+                    item.style.display = 'block';
+                    item.style.opacity = 1;
+                    item.style.transform = 'scale(1)';
+                } else {
+                    // Hide item (optional: add a transition for a smoother effect)
+                    item.style.opacity = 0;
+                    item.style.transform = 'scale(0.8)';
+                    // Use a timeout to fully hide the element after any transition finishes
+                    setTimeout(() => {
+                        if (item.style.opacity === '0') {
+                            item.style.display = 'none';
+                        }
+                    }, 300); // 300ms matches a common CSS transition duration
+                }
+            });
+            
+            // Optional: Re-calculate the layout after filtering (for Masonry-like grids, 
+            // though not strictly needed for a simple flex/grid layout with display:none)
+            if (portfoliogrid.style.display === 'grid') {
+                // If using CSS Grid, hiding/showing items usually manages itself.
+            }
+        });
+    });
+});
+        </script>
 </body>
 
 </html>

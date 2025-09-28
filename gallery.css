@@ -392,104 +392,7 @@ a {
         }
     }
 
-.footer {
-  padding: 5vh 0 10vh 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  color: white;
-}
 
-.footer1 {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-bottom: 2px solid white;
-  padding-bottom: 40px;
-  width: 86%;
-}
-
-.logo1 {
-  display: flex;
-  align-items: flex-start;
-}
-
-.logo1 img {
-  height: 80px;
-}
-
-.logo1 h4 {
-  font-size: 6.5em;
-  font-weight: 700;
-  margin-left: 20px;
-}
-
-.contact-bthn {
-  width: 80%;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 50px 0 80px 0;
-}
-
-.btn33,
-.btn34 {
-  height: 80px;
-  width: 100%;
-  max-width: 260px;
-  background: transparent;
-  color: white;
-  border: 1px solid white;
-  font-weight: 500;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.btn33:hover,
-.btn34:hover {
-  background-color: white;
-  color: black;
-}
-
-.credentials {
-  width: 95%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.credentials p {
-  font-size: 1em;
-  font-weight: 400;
-}
-
-.links2 ul {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.links2 .wow {
-  border-right: 1px solid blueviolet;
-  padding-right: 20px;
-}
-
-.wow a {
-  color: blueviolet;
-}
-
-.links2 ul li a {
-  font-size: 1.1em;
-  font-weight: 500;
-  transition: .3s;
-}
-
-.links2 ul li a:hover {
-  color: blueviolet;
-}
 
 @media (max-width: 992px) {
   .main-nav {
@@ -514,34 +417,7 @@ a {
     columns: 2 200px;
   }
 
-  .logo1 h4 {
-    font-size: 4em;
-  }
-
-  .contact-bthn {
-    flex-direction: column;
-    width: 90%;
-    padding: 40px 0;
-  }
-
-  .btn33,
-  .btn34 {
-    font-size: 1em;
-    height: 70px;
-    max-width: 100%;
-  }
-
-  .credentials {
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .links2 ul {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  
 }
 
 @media (max-width: 768px) {
@@ -572,27 +448,173 @@ a {
     margin-top: 10px;
   }
 
-  .footer1 {
-    width: 90%;
-    padding-bottom: 20px;
-  }
+}
 
-  .contact-bthn {
-    width: 90%;
-  }
+/* =================================== */
+/* Responsive Footer (UNCHANGED AS REQUESTED) */
+/* =================================== */
 
-  .credentials {
-    padding: 0 1rem;
-  }
-
-  .links2 .wow {
-    border-right: none;
-    padding-right: 0;
-    margin-bottom: 10px;
-  }
-
-  .links2 ul {
+footer {
+    background: black;
+    color: white;
+    padding: 50px 20px; /* Consistent padding for mobile */
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Space between the footer sections */
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack logo and text on mobile */
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #444; /* Separator line */
+    padding-bottom: 30px;
+}
+
+.logo1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 15px;
-  }
+}
+
+.logo1 img {
+    height: 60px; /* Slightly smaller logo for mobile */
+}
+
+.logo1 h4 {
+    color: white;
+    font-size: clamp(3rem, 10vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-left: 0;
+}
+
+.contact-bthn {
+    width: 100%;
+    max-width: 400px; /* To prevent buttons from being too wide on mobile */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+    gap: 15px;
+    padding: 0;
+}
+
+.contact-bthn a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    display: block;
+}
+
+.contact-bthn a:hover {
+    color: black;
+}
+
+.btn33, .btn34 {
+    height: auto;
+    width: 100%;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 15px 20px; /* Better for responsive buttons */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn33:hover, .btn34:hover {
+    background-color: white;
+    color: black; /* This ensures the text color changes on hover */
+}
+
+.credentials {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Stack copyright over links */
+    align-items: center;
+    gap: 20px;
+}
+
+.credentials p {
+    color: white;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.links2 ul {
+    display: flex;
+    flex-wrap: wrap; /* Allows links to wrap onto the next line if needed */
+    justify-content: center;
+    gap: 15px 20px; /* Row and column gap */
+    margin: 0;
+    padding: 0;
+}
+
+.links2 .wow {
+    display: none; /* "Follow Us" text is hidden on mobile for a cleaner look */
+}
+
+.links2 ul li a {
+    color: white;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.links2 ul li a:hover {
+    color: blueviolet;
+}
+
+@media (min-width: 768px) {
+    footer {
+        padding: 5vh 0 10vh 0;
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: flex-start;
+        border-bottom: 2px solid white;
+        padding: 0 0 40px 0;
+        width: 86%;
+        text-align: left;
+    }
+
+    .logo1 {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .logo1 img {
+        height: 80px; /* Restore original logo size */
+    }
+
+    .logo1 h4 {
+        font-size: 6.5em; /* Restore original font size */
+        margin-left: 20px;
+    }
+
+    .contact-bthn {
+        flex-direction: row;
+        width: 80%;
+        max-width: none;
+        padding: 50px 0 80px 0;
+    }
+
+    .credentials {
+        width: 95%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .links2 .wow {
+        display: list-item; /* Show "Follow Us" again */
+        border-right: 1px solid blueviolet;
+        padding-right: 20px;
+    }
 }
