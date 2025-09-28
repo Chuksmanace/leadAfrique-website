@@ -218,6 +218,22 @@ a {
   padding-top: 100px;
 }
 
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80%;
+  max-width: 320px;
+  height: 100%;
+  color: white;
+  background-color: #c500ed;
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  padding-top: 100px;
+}
+
 .side-menu nav ul {
   display: flex;
   flex-direction: column;
@@ -229,17 +245,18 @@ a {
 
 .side-menu nav a {
   display: block;
-  padding: 18px 30px;
+  padding: 18px 0px;
   font-size: 1.6em;
-  font-weight: lighter;
-  transition: background-color 0.3s, color 0.3s;
+  font-weight: 400;
   text-decoration: none;
-  color: #ffff;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .side-menu nav a:hover {
   color: #ffffff;
 }
+
 
 #menu-toggle:checked ~ .side-menu {
   transform: translateX(0);
@@ -385,105 +402,182 @@ object-fit: cover;
     object-fit: auto;
 }
 
+/* =================================== */
+/* Responsive Footer          */
+/* =================================== */
+
+/* Main footer container */
 footer {
-    height: auto;
-    padding: 5vh 0 10vh 0;
+    background: black;
+    color: white;
+    padding: 50px 20px; /* Consistent padding for mobile */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background: black;
+    gap: 40px; /* Space between the footer sections */
 }
 
+/* Top section: Logo and "Join the Movement" */
 .footer {
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column; /* Stack logo and text on mobile */
     align-items: center;
-    border-bottom: 2px solid white;
-    padding: 0 0 40px 0;
-    width: 86%;
+    text-align: center;
+    border-bottom: 1px solid #444; /* Separator line */
+    padding-bottom: 30px;
 }
 
 .logo1 {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .logo1 img {
-    height: 80px;
+    height: 60px; /* Slightly smaller logo for mobile */
 }
 
 .logo1 h4 {
     color: white;
-    font-size: 6.5em;
+    /* Using clamp for a fluid font size that adapts to the screen width */
+    font-size: clamp(3rem, 10vw, 4rem);
     font-weight: 700;
-    margin-left: 20px;
+    line-height: 1.1;
+    margin-left: 0;
 }
 
+/* Middle section: Contact buttons */
 .contact-bthn {
-    width: 80%;
+    width: 100%;
+    max-width: 400px; /* To prevent buttons from being too wide on mobile */
     display: flex;
+    flex-direction: column; /* Stack buttons vertically */
     align-items: center;
-    gap: 20px;
-    padding: 50px 0 80px 0;
+    gap: 15px;
+    padding: 0;
 }
 
 .contact-bthn a {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    display: block;
 }
+
 .contact-bthn a:hover {
-  color: rgb(0, 0, 0);
+    color: black;
 }
 
 .btn33, .btn34 {
-    height: 80px;
+    height: auto;
     width: 100%;
-    max-width: 260px;
     background: transparent;
     color: white;
     border: 1px solid white;
     font-weight: 500;
-    font-size: 1.2em;
+    font-size: 1rem;
+    padding: 15px 20px; /* Better for responsive buttons */
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .btn33:hover, .btn34:hover {
     background-color: white;
-    color: black;
+    color: black; /* This ensures the text color changes on hover */
 }
 
-.credentials{
-    width: 95%;
+/* Bottom section: Copyright and social links */
+.credentials {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Stack copyright over links */
     align-items: center;
-}
-.credentials p{
-    color: white;
-    font-size: 1em;
-    font-weight:400 ;
-}
-.links2 ul{
-    display: flex;
     gap: 20px;
 }
-.links2 .wow{
-    border-right: 1px solid blueviolet;
-    padding-right: 20px;
-  
+
+.credentials p {
+    color: white;
+    font-size: 1em;
+    font-weight: 400;
 }
-.wow a{
-  color: blueviolet;
+
+.links2 ul {
+    display: flex;
+    flex-wrap: wrap; /* Allows links to wrap onto the next line if needed */
+    justify-content: center;
+    gap: 15px 20px; /* Row and column gap */
+    margin: 0;
+    padding: 0;
 }
-.links2 ul li a{
+
+.links2 .wow {
+    display: none; /* "Follow Us" text is hidden on mobile for a cleaner look */
+}
+
+.links2 ul li a {
     color: white;
     font-size: 1.1em;
     font-weight: 500;
-    transition: .3s;
+    transition: color 0.3s;
     text-decoration: none;
 }
-.links2 ul li a:hover{
+
+.links2 ul li a:hover {
     color: blueviolet;
+}
+
+
+/* ================================================= */
+/* Media Query for Tablets and Desktops (768px+)   */
+/* ================================================= */
+
+@media (min-width: 768px) {
+    /* Revert to your original layout for larger screens */
+    footer {
+        padding: 5vh 0 10vh 0;
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: flex-start;
+        border-bottom: 2px solid white;
+        padding: 0 0 40px 0;
+        width: 86%;
+        text-align: left;
+    }
+
+    .logo1 {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .logo1 img {
+        height: 80px; /* Restore original logo size */
+    }
+
+    .logo1 h4 {
+        font-size: 6.5em; /* Restore original font size */
+        margin-left: 20px;
+    }
+
+    .contact-bthn {
+        flex-direction: row;
+        width: 80%;
+        max-width: none;
+        padding: 50px 0 80px 0;
+    }
+
+    .credentials {
+        width: 95%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .links2 .wow {
+        display: list-item; /* Show "Follow Us" again */
+        border-right: 1px solid blueviolet;
+        padding-right: 20px;
+    }
 }

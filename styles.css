@@ -859,14 +859,9 @@ a {
     }
 
     .links2 .wow {
-        border-right: none;
-        padding-right: 0;
-        margin-bottom: 10px;
-    }
-
-    .links2 ul {
-        flex-direction: column;
-        gap: 15px;
+        display: list-item; /* Show "Follow Us" again */
+        border-right: 1px solid blueviolet;
+        padding-right: 20px;
     }
 }
 
@@ -906,3 +901,4 @@ a {
 
 
 }
+

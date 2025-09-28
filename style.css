@@ -581,165 +581,182 @@ main {
     line-height: 1.6;
 }
 
-/* --- FOOTER STYLES --- */
-.footer {
-    padding: 5vh 0 10vh 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* =================================== */
+/* Responsive Footer          */
+/* =================================== */
+
+/* Main footer container */
+footer {
     background: black;
     color: white;
+    padding: 50px 20px; /* Consistent padding for mobile */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Space between the footer sections */
 }
 
-.footer1 {
+/* Top section: Logo and "Join the Movement" */
+.footer {
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column; /* Stack logo and text on mobile */
     align-items: center;
-    border-bottom: 2px solid white;
-    padding-bottom: 40px;
-    width: 86%;
+    text-align: center;
+    border-bottom: 1px solid #444; /* Separator line */
+    padding-bottom: 30px;
 }
 
 .logo1 {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .logo1 img {
-    height: 80px;
+    height: 60px; /* Slightly smaller logo for mobile */
 }
 
 .logo1 h4 {
-    font-size: 6.5em;
+    color: white;
+    /* Using clamp for a fluid font size that adapts to the screen width */
+    font-size: clamp(3rem, 10vw, 4rem);
     font-weight: 700;
-    margin-left: 20px;
+    line-height: 1.1;
+    margin-left: 0;
 }
 
+/* Middle section: Contact buttons */
 .contact-bthn {
-    width: 80%;
+    width: 100%;
+    max-width: 400px; /* To prevent buttons from being too wide on mobile */
     display: flex;
+    flex-direction: column; /* Stack buttons vertically */
     align-items: center;
-    gap: 20px;
-    padding: 50px 0 80px 0;
+    gap: 15px;
+    padding: 0;
+}
+
+.contact-bthn a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    display: block;
+}
+
+.contact-bthn a:hover {
+    color: black;
 }
 
 .btn33, .btn34 {
-    height: 80px;
+    height: auto;
     width: 100%;
-    max-width: 260px;
     background: transparent;
     color: white;
     border: 1px solid white;
     font-weight: 500;
-    font-size: 1.2em;
+    font-size: 1rem;
+    padding: 15px 20px; /* Better for responsive buttons */
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .btn33:hover, .btn34:hover {
     background-color: white;
-    color: black;
+    color: black; /* This ensures the text color changes on hover */
 }
 
+/* Bottom section: Copyright and social links */
 .credentials {
-    width: 95%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Stack copyright over links */
     align-items: center;
+    gap: 20px;
 }
 
 .credentials p {
+    color: white;
     font-size: 1em;
     font-weight: 400;
 }
 
 .links2 ul {
     display: flex;
-    gap: 20px;
-    align-items: center;
+    flex-wrap: wrap; /* Allows links to wrap onto the next line if needed */
+    justify-content: center;
+    gap: 15px 20px; /* Row and column gap */
+    margin: 0;
+    padding: 0;
 }
 
 .links2 .wow {
-    border-right: 1px solid blueviolet;
-    padding-right: 20px;
-}
-
-.wow a {
-    color: blueviolet;
+    display: none; /* "Follow Us" text is hidden on mobile for a cleaner look */
 }
 
 .links2 ul li a {
+    color: white;
     font-size: 1.1em;
     font-weight: 500;
-    transition: .3s;
+    transition: color 0.3s;
+    text-decoration: none;
 }
 
 .links2 ul li a:hover {
     color: blueviolet;
 }
 
-/* === RESPONSIVE MEDIA QUERIES === */
 
-/* Tablets and below */
-@media (max-width: 992px) {
-    .main-nav {
-        display: none;
+/* ================================================= */
+/* Media Query for Tablets and Desktops (768px+)   */
+/* ================================================= */
+
+@media (min-width: 768px) {
+    /* Revert to your original layout for larger screens */
+    footer {
+        padding: 5vh 0 10vh 0;
     }
-    .hamburger-menu {
-        display: block;
+
+    .footer {
+        flex-direction: row;
+        justify-content: flex-start;
+        border-bottom: 2px solid white;
+        padding: 0 0 40px 0;
+        width: 86%;
+        text-align: left;
     }
-    .video h2 {
-        font-size: 4rem;
-    }
-    .main-members {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .footer-content {
-        flex-direction: column;
+
+    .logo1 {
+        flex-direction: row;
         align-items: flex-start;
-        gap: 30px;
     }
-}
 
-/* Mobile devices */
-@media (max-width: 768px) {
-    .video h2 {
-        font-size: 2.5rem;
-        width: 100%;
-        text-align: center;
+    .logo1 img {
+        height: 80px; /* Restore original logo size */
     }
-    .main-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .main-members {
-        grid-template-columns: 1fr;
-    }
-    .members h4, .members1 h4 {
-        font-size: 2.2rem;
-        width: 100%;
-        text-align: center;
-    }
+
     .logo1 h4 {
-        font-size: 2.5rem;
+        font-size: 6.5em; /* Restore original font size */
+        margin-left: 20px;
     }
+
     .contact-bthn {
-        flex-direction: column;
-        width: 100%;
+        flex-direction: row;
+        width: 80%;
+        max-width: none;
+        padding: 50px 0 80px 0;
     }
-    .btn33, .btn34 {
-        width: 100%;
-    }
+
     .credentials {
-        flex-direction: column;
-        gap: 30px;
+        width: 95%;
+        flex-direction: row;
+        justify-content: space-between;
     }
-    .links2 ul {
-        justify-content: center;
-    }
+
     .links2 .wow {
-        border-right: none;
-        padding-right: 0;
+        display: list-item; /* Show "Follow Us" again */
+        border-right: 1px solid blueviolet;
+        padding-right: 20px;
     }
 }
