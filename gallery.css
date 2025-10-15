@@ -451,170 +451,169 @@ a {
 }
 
 /* =================================== */
-/* Responsive Footer (UNCHANGED AS REQUESTED) */
+/* Responsive Footer */
 /* =================================== */
-
-footer {
-    background: black;
-    color: white;
-    padding: 50px 20px; /* Consistent padding for mobile */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px; /* Space between the footer sections */
+/* Footer Base Styles */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: clamp(40px, 8vw, 60px) clamp(15px, 5vw, 20px); /* Fluid padding based on viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 5vw, 40px); /* Responsive gap scaling */
+  font-family: 'Inter', sans-serif;
+  width: 100%;
 }
 
-.footer {
-    width: 100%;
-    display: flex;
-    flex-direction: column; /* Stack logo and text on mobile */
-    align-items: center;
-    text-align: center;
-    border-bottom: 1px solid #444; /* Separator line */
-    padding-bottom: 30px;
+/* Top Section: Logo and Heading */
+.footer1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding-bottom: clamp(20px, 4vw, 30px);
 }
 
 .logo1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+  display: flex;
+  flex-direction: column; /* Default stack for mobile */
+  align-items: center;
+  gap: clamp(10px, 3vw, 15px);
+  text-align: center;
 }
 
 .logo1 img {
-    height: 60px; /* Slightly smaller logo for mobile */
+  height: clamp(50px, 10vw, 80px); /* Fluid image height */
+  width: auto;
 }
 
 .logo1 h4 {
-    color: white;
-    font-size: clamp(3rem, 10vw, 4rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin-left: 0;
+  font-size: 6.5em; /* Responsive font scaling */
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
 }
 
+/* Middle Section: Contact Buttons */
 .contact-bthn {
-    width: 100%;
-    max-width: 400px; /* To prevent buttons from being too wide on mobile */
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically */
-    align-items: center;
-    gap: 15px;
-    padding: 0;
-}
-
-.contact-bthn a {
-    text-decoration: none;
-    color: white;
-    width: 100%;
-    display: block;
-}
-
-.contact-bthn a:hover {
-    color: black;
+  display: flex;
+  flex-direction: column; /* Stack vertically on mobile */
+  align-items: center;
+  gap: clamp(10px, 3vw, 20px);
+  width: 100%;
+  max-width: 400px; /* Prevent excessive width on small screens */
 }
 
 .btn33, .btn34 {
-    height: auto;
-    width: 100%;
-    background: transparent;
-    color: white;
-    border: 1px solid white;
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 15px 20px; /* Better for responsive buttons */
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+  padding: clamp(10px, 3vw, 15px) clamp(20px, 5vw, 30px);
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%; /* Full width on mobile */
+  text-align: center;
 }
 
 .btn33:hover, .btn34:hover {
-    background-color: white;
-    color: black; /* This ensures the text color changes on hover */
+  background-color: #fff;
+  color: #000;
 }
 
+/* Bottom Section: Credentials and Links */
 .credentials {
-    width: 100%;
-    display: flex;
-    flex-direction: column; /* Stack copyright over links */
-    align-items: center;
-    gap: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stack on mobile */
+  align-items: center;
+  gap: clamp(15px, 4vw, 20px);
+  text-align: center;
 }
 
 .credentials p {
-    color: white;
-    font-size: 1em;
-    font-weight: 400;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  font-weight: 400;
+  margin: 0;
 }
 
 .links2 ul {
-    display: flex;
-    flex-wrap: wrap; /* Allows links to wrap onto the next line if needed */
-    justify-content: center;
-    gap: 15px 20px; /* Row and column gap */
-    margin: 0;
-    padding: 0;
+  display: flex;
+  flex-wrap: wrap; /* Wrap links if needed */
+  justify-content: center;
+  gap: clamp(10px, 3vw, 20px);
+  padding: 0;
 }
 
 .links2 .wow {
-    display: none; /* "Follow Us" text is hidden on mobile for a cleaner look */
+  border-right: 1px solid #bf00ff;
+  padding-right: clamp(10px, 3vw, 15px);
+  font-weight: 600;
 }
 
 .links2 ul li a {
-    color: white;
-    font-size: 1.1em;
-    font-weight: 500;
-    transition: color 0.3s;
-    text-decoration: none;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .links2 ul li a:hover {
-    color: blueviolet;
+  color: #bf00ff;
 }
 
+/* Media Queries for Larger Screens */
 @media (min-width: 768px) {
-    footer {
-        padding: 5vh 0 10vh 0;
-    }
+  .footer {
+    padding: clamp(50px, 5vw, 60px) clamp(20px, 5vw, 40px);
+  }
 
-    .footer {
-        flex-direction: row;
-        justify-content: flex-start;
-        border-bottom: 2px solid white;
-        padding: 0 0 40px 0;
-        width: 86%;
-        text-align: left;
-    }
+  .logo1 {
+    flex-direction: row; /* Horizontal on larger screens */
+    gap: 20px;
+    text-align: left;
+  }
 
-    .logo1 {
-        flex-direction: row;
-        align-items: flex-start;
-    }
+  .logo1 h4 {
+    margin-left: 20px;
+  }
 
-    .logo1 img {
-        height: 80px; /* Restore original logo size */
-    }
+  .contact-bthn {
+    flex-direction: row; /* Side-by-side buttons */
+    max-width: none;
+    width: auto;
+  }
 
-    .logo1 h4 {
-        font-size: 6.5em; /* Restore original font size */
-        margin-left: 20px;
-    }
+  .btn33, .btn34 {
+    width: auto; /* Auto width on larger screens */
+  }
 
-    .contact-bthn {
-        flex-direction: row;
-        width: 80%;
-        max-width: none;
-        padding: 50px 0 80px 0;
-    }
+  .credentials {
+    flex-direction: row; /* Horizontal alignment */
+    justify-content: space-between;
+  }
 
-    .credentials {
-        width: 95%;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+  .links2 ul {
+    flex-wrap: nowrap; /* No wrap on larger screens */
+  }
 
-    .links2 .wow {
-        display: list-item; /* Show "Follow Us" again */
-        border-right: 1px solid blueviolet;
-        padding-right: 20px;
-    }
+  .links2 .wow {
+    display: block; /* Show "Follow Us" on larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer1 {
+    justify-content: flex-start; /* Align to left on desktop */
+  }
+
+  .contact-bthn {
+    width: auto;
+  }
+
+  .credentials {
+    width: 100%;
+  }
 }
