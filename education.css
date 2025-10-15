@@ -657,3 +657,23 @@ footer {
         padding-right: 20px;
     }
 }
+
+@media screen and (max-width: 480px) {
+    /* .hero {
+        height: 900px;
+        padding: 0 10px;
+    } */
+    .future h3 {
+        /* Further reduce font size for small mobile screens */
+        font-size: 2rem;
+    }
+
+     .future p {
+        font-size: 0.9rem;
+        line-height: normal;
+    } 
+/* 
+    #framework h2 {
+    font-size: 1.5em;
+} */
+}
